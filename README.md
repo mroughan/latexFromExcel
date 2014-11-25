@@ -54,11 +54,13 @@ in the .tex file) a command
       % TABLE{<ExcelFile>}{<TableFile}{<SheetNumber>}{<ROWS>}{<FORMAT>}
 ```
 The command will be parsed by the script (when run) which will read
-the <ExcelFile> and output the results into <TableFile>. 
+the `<ExcelFile>` and output the results into `<TableFile>`. 
 
 ## Examples: 
 
-examples
+The examples directory contains a more complete set of examples, but
+briefly:
+
 
 
 
