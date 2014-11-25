@@ -48,7 +48,13 @@ There are three parts of using this:
   2. A call to the script (which needs perl plus some packages).
   3. An include to pull in the resulting table.
 
-In detail, 
+In detail, the first step is to include (in LaTeX comments, anywhere
+in the .tex file) a command
+```
+      % TABLE{<ExcelFile>}{<TableFile}{<SheetNumber>}{<ROWS>}{<FORMAT>}
+```
+The command will be parsed by the script (when run) which will read
+the <ExcelFile> and output the results into <TableFile>. 
 
 ## Examples: 
 
