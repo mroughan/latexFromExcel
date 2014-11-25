@@ -16,7 +16,9 @@ The goal here, however, is do be able to do the latter, but a little
 more flexibly. For instance, we might want to extract columns A, B and
 C from the spreadsheet, and output them in the form of rows of a LaTeX
 table such as
+```
     B~\cite{A} & {\bf C} \\
+```
 
 Or we might want to output the rows into some other structure (not a
 table). 
