@@ -72,6 +72,12 @@ column will be pulled into the file. The main part of this should just
 be standard LaTeX, but terms such as `{!B}` will be replaced by the
 cells `Bi` from the spreadsheet.
 
+A call to the script will parse each such command and generate output
+files (which will just be rows of LaTeX in the form above).
+
+They can then be included into the document using the standard LaTeX
+`\input{}` command.
+
 ## Examples: 
 
 The examples directory contains a more complete set of examples, but
