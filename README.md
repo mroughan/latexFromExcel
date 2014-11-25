@@ -54,7 +54,23 @@ in the .tex file) a command
       % TABLE{<ExcelFile>}{<TableFile}{<SheetNumber>}{<ROWS>}{<FORMAT>}
 ```
 The command will be parsed by the script (when run) which will read
-the `<ExcelFile>` and output the results into `<TableFile>`. 
+the `<ExcelFile>` and output the results into `<TableFile>`.  The
+sheetnumber refers to the sheet of the Excel file to be read (only one
+sheet can be referred to). 
+
+The `<ROWS>` allows you to specify a single range of rows in the
+following forms:
+ + `4-7`: use rows 4 through 6
+ + `3-*`: use rows 3 through to the last row on the sheet
+ + `*-7`: use row 1 through to row 7 (NB: at the moment it doesn't
+          check for the start row, so this is just equivalent to 1-7)
+Eventually the plan is to allow `-n` syntax to specify how far from
+the end to allow, and to allow * to specify all rows.
+
+The `<FORMAT>` command allows a flexible specification of how each
+column will be pulled into the file. The main part of this should just
+be standard LaTeX, but terms such as `{!B}` will be replaced by the
+cells `Bi` from the spreadsheet.
 
 ## Examples: 
 
