@@ -33,10 +33,12 @@ This is just a Perl script, so copy it into a location that is in your
 path. 
 
 It does require a few packages that can be installed from CPAN. The
-required packages are
-	 Spreadsheet::Read (which needs a couple of others -- see CPAN)
-	 Data::Printer (which is only really used for debugging at the moment)
-         Getopt::Long
+required packages are:
+  + [Spreadsheet::Read](http://search.cpan.org/~hmbrand/Spreadsheet-Read/Read.pm)
+  (which needs a couple of others -- see CPAN)
+  + [Data::Printer](http://search.cpan.org/~garu/Data-Printer-0.35/lib/Data/Printer.pm) 
+  (which is only really used for debugging at the moment)
+  + [Getopt::Long](http://search.cpan.org/~jv/Getopt-Long-2.42/lib/Getopt/Long.pm)
 
 ## Instructions: 
 
