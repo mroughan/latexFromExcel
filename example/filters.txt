@@ -1,0 +1,12 @@
+# format:
+#     regexp | replacement
+
+# put empty fields instead of '{no}'
+{\s*[nN][oO]\s*}|{}
+
+# don't put empty citations
+\\cite{\s*}|{}
+
+# replace '{yes}' with a checkmark
+{\s*[yY][eE][sS]\s*}|{\checkmark}
+
