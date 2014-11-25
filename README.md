@@ -6,9 +6,9 @@ the aim is to be able to incorporate spreadsheet information
 into LaTeX in a flexible manner.
 
 Tools exists as
-  + [*Excel2LaTeX* a macro in Excel to output the spreadsheet in LaTeX
+  + [**Excel2LaTeX** a macro in Excel to output the spreadsheet in LaTeX
     format](http://www.ctan.org/tex-archive/support/excel2latex/)
-  + [*exceltex.sty* a LaTeX style (in conjunction with a script) that will tak part of
+  + [**exceltex.sty** a LaTeX style (in conjunction with a script) that will tak part of
     a spreadsheet and insert it into a LaTeX document.](http://www.physik.uni-freiburg.de/~doerr/exceltex/index.en.html)
 
 
@@ -29,10 +29,19 @@ the LaTeX document.
 
 ## Installation: 
 
+This is just a Perl script, so copy it into a location that is in your
+path. 
+
+It does require a few packages that can be installed from CPAN. The
+required packages are
+	 Spreadsheet::Read (which needs a couple of others -- see CPAN)
+	 Data::Printer (which is only really used for debugging at the moment)
+         Getopt::Long
+
 ## Instructions: 
 
 There are three parts of using this:
-  1. Include a "" command in the comments of a .tex file. This
+  1. Include a command in the *comments* of a .tex file. This
      instructs excel2latex what to use to construct the table.
   2. A call to the script (which needs perl plus some packages).
   3. An include to pull in the resulting table.
