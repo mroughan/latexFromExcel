@@ -51,7 +51,7 @@ There are three parts of using this:
 In detail, the first step is to include (in LaTeX comments, anywhere
 in the .tex file) a command
 ```
-      % TABLE{<ExcelFile>}{<TableFile}{<SheetNumber>}{<ROWS>}{<FORMAT>}
+      % TABLE{<ExcelFile>}{<TableFile>}{<SheetNumber>}{<ROWS>}{<FORMAT>}
 ```
 The command will be parsed by the script (when run) which will read
 the `<ExcelFile>` and output the results into `<TableFile>`.  The
@@ -76,7 +76,7 @@ A call to the script will parse each such command and generate output
 files (which will just be rows of LaTeX in the form above).
 
 They can then be included into the document using the standard LaTeX
-`\input{}` command.
+`\input{<TableFile>}` command.
 
 ## Examples: 
 
