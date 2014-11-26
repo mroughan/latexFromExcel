@@ -73,10 +73,30 @@ be standard LaTeX, but terms such as `{!B}` will be replaced by the
 cells `Bi` from the spreadsheet.
 
 A call to the script will parse each such command and generate output
-files (which will just be rows of LaTeX in the form above).
+files (which will just be rows of LaTeX in the form above). A typical
+call would be
+```
+	latexFromExcel.pl --file <LaTeXfile> -F <FilterFile>
+```
+The `<LaTeXfile>` is just the LaTeX file containing the embedded
+command. The `<FilterFile>` allows you to apply a series of string
+replacements operations to the contents of the spreadsheet before it
+appears in the LaTeX. The format is just a series of lines (blank
+lines and shell comments are ignored) with a Perl regexp then a `|`,
+and then the replacement value. For instance
+```
+# put empty fields instead of '{no}'
+{\s*[nN][oO]\s*}|{}
 
-They can then be included into the document using the standard LaTeX
-`\input{<TableFile>}` command.
+# don't put empty citations
+\\cite{\s*}|{}
+
+# replace '{yes}' with a checkmark
+{\s*[yY][eE][sS]\s*}|{\checkmark}
+```
+
+The output from the processing can then be included into the document
+using the standard LaTeX `\input{<TableFile>}` command.
 
 ## Examples: 
 
