@@ -85,14 +85,18 @@ appears in the LaTeX. The format is just a series of lines (blank
 lines and shell comments are ignored) with a Perl regexp then a `|`,
 and then the replacement value. For instance
 ```
-# put empty fields instead of '{no}'
+# put empty fields instead of '{no}', ignoring case.
 {\s*[nN][oO]\s*}|{}
-
-# don't put empty citations
-\\cite{\s*}|{}
 
 # replace '{yes}' with a checkmark
 {\s*[yY][eE][sS]\s*}|{\checkmark}
+```
+
+The filters are applied to the LaTeX string, so they alter the LaTeX
+output as well as the spreadsheet, e.g.,
+```
+# Don't bother including empty citations.
+\\cite{\s*}|{}
 ```
 
 The output from the processing can then be included into the document
