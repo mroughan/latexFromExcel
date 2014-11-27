@@ -55,7 +55,8 @@ in the .tex file) a command
 The command will be parsed by the script (when run) which will read
 the `<ExcelFile>` and output the results into `<TableFile>`.  The
 sheetnumber refers to the sheet of the Excel file to be read (only one
-sheet can be referred to). 
+sheet can be referred to at a time; bringing multiple sheets needs
+multiple calls). 
 
 The `<ROWS>` allows you to specify a single range of rows in the
 following forms:
