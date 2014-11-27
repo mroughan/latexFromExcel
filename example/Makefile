@@ -24,45 +24,18 @@
 
 BIBTEX = bibtex -min-crossrefs=50 
 LATEX  = pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 -shell-escape
-PS2PDF = ps2pdf
-DVIPS = dvips
-# MKINDEX = makeindex -s <style file>
-MKINDEX = makeindex 
+LATEXFROMEXCEL = latexFromExcel.pl
 
 SRCFILES := $(shell ls *.tex)
-SRC = graph_formats.tex
+SRC = example.tex
 ROOT = $(SRC:.tex=)
 PDF = $(SRC:.tex=.pdf)
-BIB = $(SRC:.tex=.bib)
-BBL = $(SRC:.tex=.bbl)
-INDEX = $(SRC:.tex=.idx)
-
-all: pdf
-pdf: ${PDF} 
-bbl: ${BBL}
-bib: ${BIB}
-index: ${INDEX}
 
 # rules for latex
 $(PDF): %.pdf: %.tex FORCE
-	latexFromExcel.pl --file $< -F filters.txt
-	${LATEX} $< 
-#	-${MKINDEX} $(<:.tex=)
-	-${BIBTEX} $(<:.tex=)
+	${LATEXFROMEXCEL} --file $< -F filters.txt
 	${LATEX} $< 
 	${LATEX} $< 
-
-# other latex files
-%.bbl: %.tex FORCE
-	-${BIBTEX} $(<:.tex=)
-
-%.idx: %.tex FORCE
-	-${MKINDEX} $(<:.tex=)
-
-$(BIB): ${SRCFILES} FORCE
-	rm -fr $@ 
-	cat $^ | /home/mroughan/bin/bibextract.pl > $@.tmp
-	mv $@.tmp $@
 
 # cause latex to run every time I type make
 FORCE:

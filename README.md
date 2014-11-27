@@ -51,7 +51,7 @@ There are three parts of using this:
 In detail, the first step is to include (in LaTeX comments, anywhere
 in the .tex file) a command
 ```
-      % TABLE{<ExcelFile>}{<TableFile>}{<SheetNumber>}{<ROWS>}{<FORMAT>}
+      % latexFromExcel{<ExcelFile>}{<TableFile>}{<SheetNumber>}{<ROWS>}{<FORMAT>}
 ```
 The command will be parsed by the script (when run) which will read
 the `<ExcelFile>` and output the results into `<TableFile>`.  The
@@ -98,6 +98,9 @@ output as well as the spreadsheet, e.g.,
 # Don't bother including empty citations.
 \\cite{\s*}|{}
 ```
+Unfortunately there doesn't seem to be an easy way to have
+backreferences like `$1` in the replacement string, which slightly
+reduces what you can do.
 
 The output from the processing can then be included into the document
 using the standard LaTeX `\input{<TableFile>}` command.
@@ -105,7 +108,16 @@ using the standard LaTeX `\input{<TableFile>}` command.
 ## Examples: 
 
 The examples directory contains a more complete set of examples, but
-briefly:
+briefly: in the LaTeX you might have something like:
+```
+    \begin{tabular}{r|ll}
+      % latexFromExcel{example.xlsx}{table_header.tex}{1}{2-2}{{\bf {!B}} & {\bf {!C}} & {\bf {!D}} \\}
+      \input{table_header.tex}
+      \hline
+      % latexFromExcel{example.xlsx}{table_body.tex}{1}{3-*}{  \href{!E}{!B} & {!C} & {!D} \\}
+      \input{table_body.tex} 
+    \end{tabular} 
+```
 
 
 

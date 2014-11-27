@@ -1,14 +1,25 @@
 #!/usr/bin/perl -w
-# excel2latex.pl -- Matthew Roughan, 2014
-#   <matthew.roughan@adelaide.edu.au>
+# latexFromExcel.pl -- Matthew Roughan, 2014, <matthew.roughan@adelaide.edu.au>
 #
-# see LICENSE for details of usage.
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
 #
 ########################################################
 use Spreadsheet::Read;  # https://metacpan.org/pod/Spreadsheet::Read
 use Data::Printer;
 
-$version = "excel2latex.pl v0.01 (Thu Nov 13 2014)";
+$version = "latexFromExcel.pl v0.01 (Thu Nov 13 2014)";
 chomp($today = `date`);
 print STDERR "running $version on $today\n";
 
@@ -22,7 +33,6 @@ Getopt::Long::Configure("bundling");
 $result = GetOptions('help|h' => \$opt_help,
 		     'Debug|D=i' => \$opt_debug,
 		     'file|f=s' => \$latex_file,
-		     'dir|d=s' => \$dir,
 		     'Filter|F=s' => \$filter_file,
 		     ) || die usage();
 $result = 0;
@@ -35,13 +45,6 @@ if (defined($opt_debug)) {
   $debug = $opt_debug;
 } else {
   $debug = 0;
-}
-
-if (!defined($dir)) {
-  $dir = 'excel2latex';
-}
-if (!(-e $dir)) {
-  mkdir $dir;
 }
 
 if (!defined($latex_file)) {
@@ -77,11 +80,11 @@ if (defined($filter_file)) {
 }
 
 
-# start the program
+# read the LaTeX file, and look for commands
 open(FILE, "< $latex_file") or die "Error:could not open $latex_file: $!\n";
 $i = 0;
 while (<FILE>) {
-  if (m"%\s+TABLE{([^}]+)}{([^}]+)}{([^}]+)}{([^}]+)}{(.*)}") {
+  if (m"%\s+latexFromExcel{([^}]+)}{([^}]+)}{([^}]+)}{([^}]+)}{(.*)}") {
     $excel_file[$i] = $1;
     $table_file[$i] = $2;
     $sheet[$i] = $3;

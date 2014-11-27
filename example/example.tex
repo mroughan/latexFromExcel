@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfig}
+% \DeclareCaptionType{copyrightbox}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{fixltx2e} %keeps figure*s in order with figures
+\usepackage{color}
+\usepackage{rotating}
+\newcommand{\comment}[1]{}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdfauthor={Matthew Roughan},pdftitle={The Compleat Catenary}]{hyperref}
+\usepackage[table]{xcolor}
+\definecolor{palepink}{rgb}{1.0,0.9,0.9}
+\rowcolors{2}{white}{palepink}
+
+% http://tex.stackexchange.com/questions/63502/how-to-make-latex-recognize-tick-and-cross-symbols
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{newunicodechar}
+\newunicodechar{✓}{\checkmark}
+\usepackage{verbatim}
+
+
+\begin{document}
+
+\section{Introduction}
+
+A quick example of how to call the latexFromExcel script. 
+
+\begin{table*}[h]
+  \centering
+  {\small
+    \begin{tabular}{r|ll}
+      % latexFromExcel{example.xlsx}{table_header.tex}{1}{2-2}{{\bf {!B}} & {\bf {!C}} & {\bf {!D}} \\}
+      \input{table_header.tex}
+      \hline
+      % latexFromExcel{example.xlsx}{table_body.tex}{1}{3-*}{  \href{!E}{!B} & {!C} & {!D} \\}
+      \input{table_body.tex} 
+    \end{tabular} 
+  }
+  \caption{Example table from example.xlsx.}
+  \label{tab:attributes}
+\end{table*}
+
+\noindent The actual tables generated are repeated here:
+
+\verbatiminput{table_body.tex}
+
+\noindent Note the first line gives the print statement generating each line of
+the file, and then it is followed by one line for each (included) row
+of the table in that format, but after filtering through the
+following:
+
+\verbatiminput{filters.txt}
+
+
+\end{document}
