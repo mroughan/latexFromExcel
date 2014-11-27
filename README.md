@@ -8,7 +8,7 @@ information into LaTeX in a flexible manner.
 Current tools exists with similar aims
   + [**Excel2LaTeX** a macro in Excel to output the spreadsheet in LaTeX
     format](http://www.ctan.org/tex-archive/support/excel2latex/)
-  + [**exceltex.sty** a LaTeX style (in conjunction with a script) that will tak part of
+  + [**exceltex.sty** a LaTeX style (in conjunction with a script) that will take part of
     a spreadsheet and insert it into a LaTeX document.](http://www.physik.uni-freiburg.de/~doerr/exceltex/index.en.html)
 
 The goal here, however, is do be able to do the latter, but a little
@@ -117,6 +117,9 @@ briefly: in the LaTeX you might have something like:
       \input{table_body.tex} 
     \end{tabular} 
 ```
+
+A Makefile is included in the examples directory to run the script
+automatically. 
 
 
 
