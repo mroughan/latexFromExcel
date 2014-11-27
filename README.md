@@ -44,8 +44,8 @@ required packages are:
 There are three parts of using this:
   1. Include a command in the *comments* of a .tex file. This
      instructs excel2latex what to use to construct the table.
-  2. A call to the script (which needs perl plus some packages).
-  3. An include to pull in the resulting table.
+  2. A call to the script (which needs Perl plus some packages: see above).
+  3. An `include` to pull in the resulting table in the document.
 
 In detail, the first step is to include (in LaTeX comments, anywhere
 in the .tex file) a command
