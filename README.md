@@ -1,16 +1,15 @@
-# excel2latex.pl
+# latexFromExcel
 
 ## Intro: 
 
-the aim is to be able to incorporate spreadsheet information
-into LaTeX in a flexible manner.
+The aim of this tool is to be able to incorporate spreadsheet
+information into LaTeX in a flexible manner.
 
-Tools exists as
+Current tools exists with similar aims
   + [**Excel2LaTeX** a macro in Excel to output the spreadsheet in LaTeX
     format](http://www.ctan.org/tex-archive/support/excel2latex/)
   + [**exceltex.sty** a LaTeX style (in conjunction with a script) that will tak part of
     a spreadsheet and insert it into a LaTeX document.](http://www.physik.uni-freiburg.de/~doerr/exceltex/index.en.html)
-
 
 The goal here, however, is do be able to do the latter, but a little
 more flexibly. For instance, we might want to extract columns A, B and
