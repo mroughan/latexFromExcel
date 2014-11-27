@@ -11,7 +11,7 @@ Current tools exists with similar aims
   + [**exceltex.sty** a LaTeX style (in conjunction with a script) that will take part of
     a spreadsheet and insert it into a LaTeX document.](http://www.physik.uni-freiburg.de/~doerr/exceltex/index.en.html)
 
-The goal here, however, is do be able to do the latter, but a little
+The goal here, however, is to be able to do the latter, but a little
 more flexibly. For instance, we might want to extract columns A, B and
 C from the spreadsheet, and output them in the form of rows of a LaTeX
 table such as
@@ -21,10 +21,10 @@ table such as
 
 Or we might want to output the rows into some other structure (not a
 table). 
-
-Also, while exceltex provides for including formatting from the
+ 
+Also, while `exceltex` provides for including formatting from the
 spreadsheet, our approach specifies that formatting will be defined in
-the LaTeX document.
+the LaTeX document, which is how I like to do it.
 
 ## Installation: 
 
